@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rule-Based Chatbot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Left panel: shows the actual rules the bot is checking, in order.
+       When a rule fires, its list item gets the "active" class (see script.js). -->
+  <aside class="rulebook">
+    <h1>The Rulebook</h1>
+    <p class="sub">This bot has no AI model — it checks your message against these rules, top to bottom, and replies using the first one that matches.</p>
+    <ul class="rule-list" id="ruleList">
+      <li class="rule-item" data-rule="greeting">Greeting<span class="kw">hi, hello, hey</span></li>
+      <li class="rule-item" data-rule="farewell">Farewell<span class="kw">bye, goodbye, see you</span></li>
+      <li class="rule-item" data-rule="thanks">Thanks<span class="kw">thanks, appreciate it</span></li>
+      <li class="rule-item" data-rule="wellbeing">Wellbeing<span class="kw">how are you</span></li>
+      <li class="rule-item" data-rule="identity">Identity<span class="kw">your name, who are you</span></li>
+      <li class="rule-item" data-rule="help">Help<span class="kw">help, what can you do</span></li>
+      <li class="rule-item" data-rule="question">General question<span class="kw">any message ending in ?</span></li>
+      <li class="rule-item" data-rule="fallback">Fallback<span class="kw">none of the above</span></li>
+    </ul>
+    <div class="rulebook-foot">Rules are checked in the order shown above. The first match wins — later rules are never reached once one fires.</div>
+  </aside>
+
+  <!-- Right panel: the actual chat window -->
+  <main class="chat">
+    <div class="chat-header">
+      <h2>Rule-Based Chatbot</h2>
+      <p>Try: "hi", "how are you?", "what's your name?", "thanks", "bye"</p>
+    </div>
+
+    <div class="messages" id="messages">
+      <div class="msg-row bot">
+        <div class="bubble">Hello! I'm a rule-based chatbot. Say something and watch which rule lights up on the left.</div>
+      </div>
+    </div>
+
+    <div class="input-row">
+      <input id="userInput" type="text" placeholder="Type a message..." autocomplete="off">
+      <button id="sendBtn">Send</button>
+    </div>
+  </main>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
